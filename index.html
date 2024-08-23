@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kelompok 2 - Ngerakit Komputer</title>
+<link rel="icon" href="images.png" type="image/png">
+<link rel="icon" href="images.ico" type="image/x-icon">
+    <style>/* Mengatur font default dan background */
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #2c3e50, #3498db);
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    color: #fff;
+    box-sizing: border-box;
+}
+
+/* Container utama dengan efek bayangan dan padding */
+.container {
+    background: rgba(255, 255, 255, 0.15);
+    padding: 30px;
+    border-radius: 25px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+    text-align: center;
+    width: 100%;
+    max-width: 800px;
+    max-height: 100vh;
+    overflow-y: auto;
+    backdrop-filter: blur(10px);
+    animation: fadeInUp 0.8s ease-out forwards;
+    box-sizing: border-box;
+}
+
+/* Animasi fadeInUp */
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Header utama dengan desain yang menarik */
+header {
+    margin-bottom: 30px;
+}
+
+header h1 {
+    color: #e0e0e0;
+    margin: 0;
+    font-size: 3.2em;
+    font-weight: 700;
+    text-shadow: 0 4px 8px rgba(0, 0, 0, 0.7);
+}
+
+header h2 {
+    color: #ffffff;
+    margin: 15px 0;
+    font-size: 2.2em;
+    font-weight: 500;
+}
+
+header h3 {
+    color: #ecf0f1;
+    margin: 10px 0 30px;
+    font-size: 1.6em;
+    font-weight: 300;
+}
+
+/* Gaya untuk bagian utama konten */
+main {
+    margin-bottom: 30px;
+}
+
+main h2 {
+    color: #ecf0f1;
+    margin-bottom: 20px;
+    font-size: 1.8em;
+    position: relative;
+    font-weight: 600;
+}
+
+main h2::after {
+    content: '';
+    display: block;
+    width: 80px;
+    height: 4px;
+    background: linear-gradient(90deg, #e67e22, #f39c12);
+    margin: 8px auto 0;
+    border-radius: 2px;
+}
+
+/* Gaya daftar komponen dengan gambar */
+ul {
+    list-style-type: none;
+    padding: 0;
+    color: #ecf0f1;
+    font-size: 1.2em;
+    line-height: 1.8em;
+    margin: 0;
+}
+
+ul li {
+    display: flex;
+    align-items: center;
+    margin: 15px 0;
+    position: relative;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    padding: 15px;
+    border-radius: 15px;
+    background: rgba(44, 62, 80, 0.2);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(8px);
+}
+
+ul li img {
+    width: 100px; /* Ukuran seragam gambar */
+    height: 100px; /* Ukuran seragam gambar */
+    margin-right: 15px;
+    border-radius: 10px;
+    object-fit: cover; /* Memastikan gambar tidak terdistorsi */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+ul li span {
+    flex: 1;
+    text-align: left;
+    line-height: 1.4em; /* Menyesuaikan jarak baris teks */
+}
+
+/* Efek hover pada item daftar */
+ul li:hover {
+    color: #ffffff;
+    background: rgba(41, 128, 185, 0.5);
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.6);
+}
+
+ul li:hover img {
+    transform: scale(1.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6);
+}
+
+ul li:hover span {
+    color: #ffffff;
+}
+
+/* Gaya footer dengan animasi fade-in */
+footer {
+    margin-top: 30px;
+    font-size: 0.9em;
+    color: #ffffff;
+}
+
+footer p {
+    animation: fadeIn 1.5s ease-in forwards;
+    opacity: 0;
+}
+
+/* Animasi fade-in footer */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+/* Gaya responsif untuk tampilan layar kecil */
+@media (max-width: 720px) {
+    body {
+        padding: 10px;
+    }
+
+    .container {
+        padding: 20px;
+    }
+
+    header h1 {
+        font-size: 2.8em;
+    }
+
+    header h2 {
+        font-size: 1.8em;
+    }
+
+    header h3 {
+        font-size: 1.4em;
+    }
+
+    main h2 {
+        font-size: 1.5em;
+    }
+
+    ul li {
+        font-size: 1.1em;
+        padding: 10px;
+    }
+
+    ul li img {
+        width: 80px; /* Mengubah ukuran gambar pada layar kecil */
+        height: 80px; /* Mengubah ukuran gambar pada layar kecil */
+    }
+}
+
+/* Gaya untuk jam analog */
+        .clock {
+            width: 150px;
+            height: 150px;
+            border: 6px solid #3498db;
+            border-radius: 50%;
+            position: relative;
+            margin: 20px auto;
+            padding: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .clock .hour, .clock .minute, .clock .second {
+            width: 50%;
+            height: 6px;
+            background: #ecf0f1;
+            position: absolute;
+            top: 50%;
+            transform-origin: 100%;
+            transform: rotate(90deg);
+            transition: all 0.05s;
+        }
+
+        .clock .hour {
+            height: 8px;
+            background: #e74c3c;
+        }
+
+        .clock .minute {
+            height: 4px;
+            background: #f39c12;
+        }
+
+        .clock .second {
+            height: 2px;
+            background: #e67e22;
+        }
+
+        .clock .center {
+            width: 15px;
+            height: 15px;
+            background: #e74c3c;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            border-radius: 50%;
+        }</style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Kelompok 2</h1>
+            <h2>Kelas 10 TKJ 4</h2>
+                        <h1>Jam </h1>
+      <!-- Tambahkan Jam Analog -->
+            <div id="clock" class="clock">
+                <div class="hour"></div>
+                <div class="minute"></div>
+                <div class="second"></div>
+                <div class="center"></div>
+            </div>
+            <h3>Daftar Anggota:</h3>
+            <ul id="team-list">
+                <li>Atharsyah</li>
+                <li>Deni</li>
+                <li>Daffa</li>
+                <li>Kevin</li>
+                <li>Mahesa</li>
+            </ul>
+        </header>
+        <main>
+            <h2>Komponen Komputer</h2>
+            <ul id="components-list">
+      <li>
+                    <div class="image-container">
+                        <img src="https://www.asus.com/media/odin/websites/ID/News/b6iiku0c98okblaj/ROG-STRIX-B760-F-GAMING-WIFI_3D-7.png" alt="Motherboard">
+                    </div>
+                    <span><strong>Motherboard:</strong> Komponen utama yang menghubungkan semua perangkat keras lainnya.</span>
+                </li>
+                <li>
+                    <div class="image-container">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSAfkDrkTAjRF_RdnC6FynpTzRhg4a2Ozc5khAfRRsNsHjsm1_cC3T54AQ&s=10" alt="Processor">
+                    </div>
+                    <span><strong>Processor:</strong> Otak dari komputer yang menjalankan perintah.</span>
+                </li>
+                <li>
+                    <div class="image-container">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQP6EiIwF2yj3NljvMP-mnMzSJoetJ0EmaBqBxY6cE07rR1weM9eJ6sMOYE&s=10" alt="RAM">
+                    </div>
+                    <span><strong>RAM:</strong> Memori akses acak untuk menyimpan data sementara saat komputer beroperasi.</span>
+                </li>
+                <li>
+                    <div class="image-container">
+                        <img src="https://www.mouser.co.id/images/marketingid/2021/img/192117200.png?v=032024.1227" alt="SSD">
+                    </div>
+                    <span><strong>SSD:</strong> Penyimpanan yang cepat untuk menyimpan data dan sistem operasi.</span>
+                </li>
+                <li>
+                    <div class="image-container">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSMJyM8oZMQEi5BPdJ1KWPQZKSOtkJz4SeF3K5ArUdHjnTPLDF2T9SJ3gKP&s=10" alt="PSU">
+                    </div>
+                    <span><strong>PSU:</strong> Unit penyedia daya yang mengalirkan listrik ke semua komponen komputer.</span>
+                </li>
+            </ul>
+
+        </main>
+
+        <footer>
+            <p>© 2024 Kelompok 2 - Kelas 10 TKJ 4</p>
+        </footer>
+    </div>
+    <script>document.addEventListener("DOMContentLoaded", function() {
+    const teamList = document.getElementById('team-list');
+    const componentsList = document.getElementById('components-list');
+
+    // Efek hover dengan warna yang berubah
+    teamList.addEventListener('mouseover', function() {
+        teamList.style.color = "#3498db";
+    });
+
+    teamList.addEventListener('mouseout', function() {
+        teamList.style.color = "#ecf0f1";
+    });
+
+    componentsList.addEventListener('mouseover', function() {
+        componentsList.style.color = "#e67e22";
+    });
+
+    componentsList.addEventListener('mouseout', function() {
+        componentsList.style.color = "#ecf0f1";
+    });
+
+    // Efek klik untuk memperbesar/memperkecil komponen
+    componentsList.addEventListener('click', function(e) {
+        if (e.target.tagName === 'LI') {
+            e.target.classList.toggle('expanded');
+        }
+    });
+
+    // Menambahkan animasi untuk item yang diklik
+    const listItems = document.querySelectorAll('ul li');
+    listItems.forEach(item => {
+        item.addEventListener('click', function() {
+            item.style.transition = 'transform 0.4s ease';
+            item.style.transform = 'scale(1.05)';
+            setTimeout(() => {
+                item.style.transform = 'scale(1)';
+            }, 400);
+        });
+    });
+
+    // Efek paralaks untuk gambar saat scroll
+    window.addEventListener('scroll', function() {
+        const scrolled = window.scrollY;
+        document.querySelectorAll('ul li img').forEach(img => {
+            img.style.transform = `translateY(${scrolled * 0.3}px)`;
+        });
+    });
+});
+
+ // JavaScript untuk menggerakkan jarum jam
+        function setClock() {
+            const now = new Date();
+            const seconds = now.getSeconds();
+            const minutes = now.getMinutes();
+            const hours = now.getHours();
+            
+            const secondDeg = ((seconds / 60) * 360) + 90;
+            const minuteDeg = ((minutes / 60) * 360) + ((seconds / 60) * 6) + 90;
+            const hourDeg = ((hours / 12) * 360) + ((minutes / 60) * 30) + 90;
+            
+            document.querySelector('.hour').style.transform = `rotate(${hourDeg}deg)`;
+            document.querySelector('.minute').style.transform = `rotate(${minuteDeg}deg)`;
+            document.querySelector('.second').style.transform = `rotate(${secondDeg}deg)`;
+        }
+
+        setInterval(setClock, 1000);
+        setClock();</script>
+</body>
+</html>
